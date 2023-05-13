@@ -13,16 +13,19 @@ class CustomButtonCancel extends GetView {
   Widget build(BuildContext context) {
     return SizedBox(
       width: Get.width,
-      child: MaterialButton(
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          side: BorderSide(width: 1.5,color: Colors.blue),
+          backgroundColor: Colors.white,
+          shape: StadiumBorder(),
+        ),
         onPressed: onPress,
-        color: GlobalColor.cancelbut,
-        shape: BeveledRectangleBorder(),
         child: Padding(
           padding: const EdgeInsets.all(10),
           child: Text(
             title,
             style: TextStyle(
-              color: Colors.black,
+              color: GlobalColor.blugrey,
               letterSpacing: 1,
               fontWeight: FontWeight.w600,
               fontSize: Get.height * 0.02,

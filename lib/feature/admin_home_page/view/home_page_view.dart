@@ -14,8 +14,7 @@ class HomePageView extends GetView<HomePageController> {
       () => controller.loader.value
           ? const Center(child: CircularProgressIndicator())
           : Scaffold(
-              backgroundColor: Colors.white,
-              drawer: Drawer(
+              endDrawer: Drawer(
                 child: ListView(
                   padding: EdgeInsets.zero,
                   children: [
@@ -64,22 +63,22 @@ class HomePageView extends GetView<HomePageController> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
+                      padding: const EdgeInsets.fromLTRB(0, 15, 0, 8),
                       child: CircleAvatar(
-                          radius: 25,
+                          radius: Get.width * 0.052,
                           backgroundImage:
                               AssetImage('assets/Image/Profileimage.png')),
                     ),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 10, 20, 0),
+                      padding: const EdgeInsets.fromLTRB(0, 10, 20, 2),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(FireBase.userInfo['name'],
                               style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black54,
+                                  fontWeight: FontWeight.w500,
                                   fontSize: Get.height * 0.028)),
                           Text(
                             FireBase.userInfo['role'],
@@ -91,19 +90,18 @@ class HomePageView extends GetView<HomePageController> {
                       ),
                     ),
                     CircleAvatar(
-                      backgroundColor: Colors.indigo,
+                      backgroundColor: Colors.indigo.shade400,
                       child: IconButton(
                           onPressed: () {
                             Get.toNamed(Routes.Notification);
                           },
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.notifications,
-                            size: 25,
                           )),
                     ),
                   ],
                 ),
-                elevation: 0,
+                elevation: 0.7,
                 flexibleSpace: Container(
                   decoration: BoxDecoration(
                       gradient: LinearGradient(
@@ -117,16 +115,8 @@ class HomePageView extends GetView<HomePageController> {
                   child: Container(
                     child: Column(
                       children: [
-                        Padding(
-                          padding:
-                              EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [],
-                          ),
-                        ),
                         SizedBox(
-                          height: Get.height * 0.03,
+                          height: Get.height * 0.01,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -136,199 +126,184 @@ class HomePageView extends GetView<HomePageController> {
                                   EdgeInsetsDirectional.fromSTEB(15, 0, 0, 20),
                               child: Text('Project',
                                   style: TextStyle(
+                                      color: Colors.black87,
                                       fontSize: Get.height * 0.035,
-                                      fontWeight: FontWeight.bold)),
+                                      fontWeight: FontWeight.w500)),
                             ),
                           ],
                         ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(18, 0, 0, 0),
-                          child: Row(
-                            children: [
-                              Container(
-                                padding: EdgeInsets.all(16),
-                                margin: EdgeInsets.only(
-                                    left: 0, right: 22, top: 0, bottom: 0),
-                                width: Get.width * 0.4,
-                                height: Get.height * 0.3,
-                                child: Column(
-                                  // crossAxisAlignment: CrossAxisAlignment.start,
-
-                                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
-                                  children: [
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text("Progress Task",
-                                            style: TextStyle(
-                                                fontSize: Get.height * 0.025,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.white)),
-                                      ],
-                                    ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 20, 0, 10),
-                                          child: Text("UI Design",
-                                              style: TextStyle(
-                                                  fontSize: Get.height * 0.025,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Colors.white)),
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        Text("08/01/2023",
-                                            style: TextStyle(
-                                                fontSize: Get.height * 0.015,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.white)),
-                                      ],
-                                    ),
-                                    SizedBox(
-                                      height: Get.height * 0.05,
-                                    ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
-                                          "Progress",
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Container(
+                              padding: EdgeInsets.all(16),
+                              width: Get.width * 0.44,
+                              height: Get.height * 0.3,
+                              child: Column(
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text("Progress Task",
                                           style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: Get.height * 0.017,
-                                          ),
-                                        ),
-                                        Text(
-                                          "50%",
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: Get.height * 0.017,
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                    LinearProgressIndicator(
-                                      value: 0.5,
-                                      backgroundColor: Colors.white,
-                                      minHeight: Get.height * 0.01,
-                                      color: Colors.green,
-                                    ),
-                                  ],
-                                ),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20.0),
-                                  gradient: LinearGradient(
-                                    colors: [
-                                      Colors.indigo,
-                                      Colors.blue,
+                                              fontSize: Get.height * 0.025,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.white)),
                                     ],
                                   ),
-                                ),
-                              ),
-                              Container(
-                                padding: EdgeInsets.all(16),
-                                margin: EdgeInsets.only(
-                                    left: 0, right: 22, top: 0, bottom: 0),
-                                width: Get.width * 0.42,
-                                height: Get.height * 0.3,
-                                child: Column(
-                                  // crossAxisAlignment: CrossAxisAlignment.start,
-
-                                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
-                                  children: [
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text("Done Task",
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 20, 0, 10),
+                                        child: Text("UI Design",
                                             style: TextStyle(
                                                 fontSize: Get.height * 0.025,
                                                 fontWeight: FontWeight.bold,
                                                 color: Colors.white)),
-                                      ],
-                                    ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 20, 0, 10),
-                                          child: Text("UI Design",
-                                              style: TextStyle(
-                                                  fontSize: Get.height * 0.025,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Colors.white)),
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        Text("08/01/2023",
-                                            style: TextStyle(
-                                                fontSize: Get.height * 0.015,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.white)),
-                                      ],
-                                    ),
-                                    SizedBox(
-                                      height: Get.height * 0.05,
-                                    ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
-                                          "Progress",
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Text("08/01/2023",
                                           style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: Get.height * 0.017,
-                                          ),
+                                              fontSize: Get.height * 0.015,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.white)),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: Get.height * 0.05,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        "Progress",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: Get.height * 0.017,
                                         ),
-                                        Text(
-                                          "65%",
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: Get.height * 0.017,
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                    LinearProgressIndicator(
-                                      value: 0.65,
-                                      backgroundColor: Colors.white,
-                                      minHeight: Get.height * 0.01,
-                                      color: Colors.green,
-                                    ),
+                                      ),
+                                      Text(
+                                        "50%",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: Get.height * 0.017,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  LinearProgressIndicator(
+                                    value: 0.5,
+                                    backgroundColor: Colors.white,
+                                    minHeight: Get.height * 0.01,
+                                    color: Colors.green,
+                                  ),
+                                ],
+                              ),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20.0),
+                                gradient: LinearGradient(
+                                  colors: [
+                                    Colors.indigo,
+                                    Colors.blue,
                                   ],
                                 ),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20.0),
-                                  gradient: LinearGradient(
-                                      begin: Alignment.topLeft,
-                                      end: Alignment.topRight,
-                                      colors: <Color>[
-                                        Colors.purpleAccent,
-                                        Colors.purple,
-                                        Colors.indigo,
-                                      ]),
-                                ),
                               ),
-                            ],
-                          ),
+                            ),
+                            Container(
+                              padding: EdgeInsets.all(16),
+                              width: Get.width * 0.44,
+                              height: Get.height * 0.3,
+                              child: Column(
+                                // crossAxisAlignment: CrossAxisAlignment.start,
+
+                                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text("Done Task",
+                                          style: TextStyle(
+                                              fontSize: Get.height * 0.025,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.white)),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 20, 0, 10),
+                                        child: Text("UI Design",
+                                            style: TextStyle(
+                                                fontSize: Get.height * 0.025,
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.white)),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Text("08/01/2023",
+                                          style: TextStyle(
+                                              fontSize: Get.height * 0.015,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.white)),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: Get.height * 0.05,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        "Progress",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: Get.height * 0.017,
+                                        ),
+                                      ),
+                                      Text(
+                                        "65%",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: Get.height * 0.017,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  LinearProgressIndicator(
+                                    value: 0.65,
+                                    backgroundColor: Colors.white,
+                                    minHeight: Get.height * 0.01,
+                                    color: Colors.green,
+                                  ),
+                                ],
+                              ),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20.0),
+                                gradient: LinearGradient(
+                                    begin: Alignment.topLeft,
+                                    end: Alignment.topRight,
+                                    colors: <Color>[
+                                      Colors.purpleAccent,
+                                      Colors.purple,
+                                      Colors.indigo,
+                                    ]),
+                              ),
+                            ),
+                          ],
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,

@@ -20,8 +20,8 @@ class  UserBottomBarView extends GetView<UserBottomBarController>{
         bottomNavigationBar: ConvexAppBar(
             style: TabStyle.fixedCircle,
             backgroundColor: Colors.white,
-            color:GlobalColor.themecolor,
-            activeColor: Colors.indigo,
+            color: Colors.blue,
+            activeColor: Colors.white,
             onTap: (value) {
               controller.selectIndex(value);
             },

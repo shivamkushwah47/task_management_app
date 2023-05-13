@@ -9,7 +9,6 @@ import 'package:task_management_app/feature/signup/controller/signup_controller.
 class SignupView extends GetView<SignupController> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: GestureDetector(
@@ -129,7 +128,7 @@ class SignupView extends GetView<SignupController> {
                                           height: Get.height * 0.07,
                                         ),
                                         SizedBox(
-                                            width: Get.width - 160,
+                                            width: Get.width - 140,
                                             child: CustomButton(
                                               title: "GET STARTED",
                                               onPress: () {
@@ -165,7 +164,7 @@ class SignupView extends GetView<SignupController> {
                                               left: 10.0, right: 15.0),
                                           child: Divider(
                                             color: Colors.black,
-                                            height: 50,
+                                            height: 35,
                                           )),
                                     ),
                                     Text("OR"),
@@ -175,7 +174,7 @@ class SignupView extends GetView<SignupController> {
                                               left: 15.0, right: 10.0),
                                           child: Divider(
                                             color: Colors.black,
-                                            height: 50,
+                                            height: 35,
                                           )),
                                     ),
                                   ]),
@@ -185,12 +184,14 @@ class SignupView extends GetView<SignupController> {
                                   SizedBox(
                                     width: Get.width - 140,
                                     child: ElevatedButton(
+                                      // shape: StadiumBorder(),
                                         style: ElevatedButton.styleFrom(
                                           backgroundColor: Colors.white,
                                           side: BorderSide(
                                               width: 1.4,
-                                              color:
-                                                  Colors.indigoAccent), // NEW
+                                              color: Colors.blue),
+                                          shape: StadiumBorder()
+                                          // NEW
                                         ),
                                         onPressed: () {
                                           controller.googleLogin(context);

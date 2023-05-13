@@ -14,7 +14,8 @@ import 'package:task_management_app/core/routes.dart';
 
 class CreateTaskController extends GetxController {
   var selectedDate = DateTime.now().obs;
-
+  // RxBool checkedValue = false.obs;
+  final Rxn<int> checkedValue = Rxn<int>();
   final GlobalKey<FormState> taskFormKey = GlobalKey<FormState>();
   final requiredValidator =
       RequiredValidator(errorText: 'this field is required');

@@ -15,6 +15,7 @@ class HomePageController extends GetxController {
     super.onInit();
   }
 
+  final Rxn<int> checkedValue = Rxn<int>();
   RxBool loader = true.obs;
 
   deleteUser(id, context) {

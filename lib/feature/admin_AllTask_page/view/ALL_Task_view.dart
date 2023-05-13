@@ -13,6 +13,7 @@ class AllTaskView extends GetView<AllTaskController> {
   @override
   Widget build(BuildContext context) {
     return Obx(() => Scaffold(
+      backgroundColor: Colors.white,
           drawer: Drawer(
             child: ListView(
               padding: EdgeInsets.zero,
@@ -58,15 +59,21 @@ class AllTaskView extends GetView<AllTaskController> {
             child: Container(
               child: Column(
                 children: [
-                  CalendarAppBar(
-                    selectedDate: DateTime.now(),
-                    backButton: false,
-                    onDateChanged: (value) {
-                      controller.selectedDate = value;
-                      print(value);
-                    },
-                    firstDate: DateTime.now().subtract(Duration(days: 140)),
-                    lastDate: DateTime.now(),
+                  SizedBox(
+                    height: 230,
+                    child: CalendarAppBar(
+                      white: Colors.blue,
+                      black: Colors.black,
+                      accent: Colors.white,
+                      fullCalendar: false,
+                      selectedDate: DateTime.now(),
+                      onDateChanged: (value) {
+                        controller.selectedDate = value;
+                        print(value);
+                      },
+                      firstDate: DateTime.now().subtract(Duration(days: 140)),
+                      lastDate: DateTime.now(),
+                    ),
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 8),
